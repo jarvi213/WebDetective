@@ -1,0 +1,50 @@
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}  
+h1 {
+    text-align: center;
+}  
+header {
+    background-color: #D6E0E4;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 2.5% 5% 2.5% 5%;
+    padding: 5%;
+}  
+section {
+    background-color: #CBD3D6;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 2.5%;
+    padding: 5%;
+}
+.formDiv {
+    border: 1px solid black;
+    display: block;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 1% 1% 2% 1%;
+    text-align: center;
+}
+.introText {
+    background-color: #CBD3D6;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 2.5% 5% 2.5% 5%;
+    padding: 2.5%;
+}
+@media only screen and (min-width: 650px) {
+    .formDiv {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+}

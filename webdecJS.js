@@ -168,9 +168,8 @@ function displayRedditResults(responseData) {
     console.log(items)
     const redditItemHTML = items.map(function(item){
         const title = (item.data.title)
-        const thumbnail = (item.data.thumbnail)
         const link = (item.data.permalink)
-        return createRedditHTML(title, thumbnail, link)
+        return createRedditHTML(title, link)
         
     }).join("")
 
@@ -178,10 +177,9 @@ function displayRedditResults(responseData) {
 }
 
 //render Reddit results to the DOM
-function createRedditHTML(title, thumbnailURL, link) {
+function createRedditHTML(title, link) {
     return `
         <div class="reddit-article">
-            <img class="reddit-thumbnail" src="${thumbnailURL}" />
             <div class="reddit-title">${title}</div>
             <div class="reddit-link">${link}</div>
         </div>
@@ -190,27 +188,22 @@ function createRedditHTML(title, thumbnailURL, link) {
 
 //manages user views
 function manageView(resultsFound) {
-    $('.results-found').hide();
-    $('.no-results-found').hide();
-
+    manageResultsFound(resultsFound);
     if (resultsFound === 0) {
         $('.no-results-found').show();
+        $('.results-found').hide();
     } else if (resultsFound > 0) {
         $('.results-found').show();
+        $('.no-results-found').hide();
+    } else {
+        $('.results-found').hide();
+        $('.no-results-found').hide();
     };
 };
 
 //compares search results to max allowed to determine what to display
 function manageResultsFound() {
-    const maxResults = $('#searchResultsCounts').val();
-    const actualResults = makeListenAPIRequest(resultsCount);
-    if (maxResults > actualResults) {
-        resultsFound = actualResults;
-        manageView(resultsFound); //double check during mentor session
-    } else if (maxResults < actualResults) {
-        resultsFound = maxResults;
-        manageView(resultsFound); //double check during mentor session
-    };
+    const resultsFound= $('#searchResultsCounts').val();
     return resultsFound;
 }
 
@@ -223,7 +216,7 @@ function submitUserInput() {
         makeListenAPIRequest(caseName, resultsCount);
         makeNewsAPIRequest(caseName, resultsCount);
         makeRedditAPIRequest(caseName, resultsCount);
-        manageResultsFound(resultsCount);
+        manageView(resultsCount);
     });
 };
 

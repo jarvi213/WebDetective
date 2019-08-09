@@ -17,15 +17,24 @@
           </p>
           <div class="formDiv">
             <form id="searchForm">
-                <p>Enter the name of a person or case here:</p>
-                <input type="text" name="victimName" id="victimNameId" required></input>
-                <p>Choose the number of results you want to see (max 20)</p>
-                <input type="number" min=1 max=20 id="searchResultsCounts" required></input>
+                <p>Enter the name of a person or case here:
+                <br><i>Hint: for more accurate results, use quotes ("") around your query.</i> 
+                </p>
+                <input type="text" name="victimName" id="victimNameId" placeholder="ex. Bitter Creek Betty" 
+                required></input>
+                <p>Choose the number of results you want to see per source (max 20)</p>
+                <input type="number" min=1 max=20 value=10 id="searchResultsCounts" required></input>
                 <input type="submit" id="submit-button"></submit>
             </form>
           </div>
         </header>
         <section class="results-found">
+            <div class="listen-results">
+            </div>
+            <div class="reddit-results">
+            </div>
+            <div class="news-results">
+            </div>
         </section>
         <section class="no-results-found">
             <h2>No Results</h2>

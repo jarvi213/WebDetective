@@ -49,6 +49,7 @@ p {
     line-height: 125%;
 }
 section {
+    background-image: linear-gradient(#F2F3FF, #B3B8C6);
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 #2A2A2A, 0 4px 8px 0 #2A2A2A;
     margin: 2.5%;
@@ -90,11 +91,18 @@ section {
 }
 .reddit-article, .news-articles, .podcast-results {
     align-items: center;
-    background-color: #E8E9F3;
-    border: 1px solid black;
+    background-image: linear-gradient(#E8E9F3, #B3B8C6);
+    border: 2px solid #0471A6;
+    border-radius: 3px;
     display: flex;
     margin: 15px;
     padding: 5px;
+}
+.reddit-article:hover, .news-articles:hover, .podcast-results:hover {
+    background-image: linear-gradient(#0471A6, #004242);
+    border: 2px solid #002626;
+    color: #F2F3FF;
+    cursor: pointer;
 }
 .reddit-article h3, .podcast-title h3 {
     padding-right: 10%;
@@ -119,8 +127,6 @@ section {
     color: #002626;
     font-size: 14px;
     font-weight: bold;
-    margin-left: 5%;
-    margin-right: 5%;
     width: 100px;
 }
 #submit-button:hover {

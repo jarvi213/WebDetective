@@ -61,9 +61,11 @@ function displayListenResults(responseData) {
 function createListenHTML(title, description, thumbnailURL) {
     return `
         <div class="podcast-results">
-            <img class="podcast-thumbnail" src="${thumbnailURL}" />
-            <div class="podcast-title">${title}</div>
-            <div class="podcast-description">${description}</div>
+            <img class="podcast-thumbnail" src="${thumbnailURL}">
+            <div class="podcast-info">
+            <h3 class="podcast-title">${title}</h3><br>
+            <p class="podcast-description">${description}</p>
+            </div>
         </div>
     `
 }
@@ -120,9 +122,11 @@ function displayNewsResults(responseData) {
 function createNewsHTML(title, description, thumbnailURL) {
     return `
         <div class="news-articles">
-            <img class="news-thumbnail" src="${thumbnailURL}" />
-            <div class="news-title">${title}</div>
-            <div class="news-description">${description}</div>
+            <img class="news-thumbnail" src="${thumbnailURL}">
+            <div class="news-content">
+            <h3 class="news-title">${title}</h3>
+            <p class="news-description">${description}</p>
+            </div>
         </div>
     `
 }
@@ -177,11 +181,14 @@ function displayRedditResults(responseData) {
 }
 
 //render Reddit results to the DOM
-function createRedditHTML(title, link) {
+function createRedditHTML(title, link) { //TODO consider making this whole div the anchor
     return `
         <div class="reddit-article">
-            <div class="reddit-title">${title}</div>
-            <div class="reddit-link">${link}</div>
+            <div class="reddit-logo">
+            <img src="https://i.postimg.cc/tCGYGhRG/reddit-icon-25878.jpg" alt="Reddit logo">
+            </div>
+            <h3 class="reddit-title">${title}</h3>
+            <a  href="https://www.reddit.com${link}" target="_blank"><button class="reddit-link">Visit</button></a>
         </div>
     `
 }

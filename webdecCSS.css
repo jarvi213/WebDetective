@@ -12,7 +12,10 @@ form {
 }  
 h1 {
     text-align: center;
-}  
+} 
+h3 {
+    margin: 5px;
+} 
 header {
     background-color: #D6E0E4;
     border: 1px solid black;
@@ -41,6 +44,49 @@ section {
     border-radius: 5px;
     margin: 2.5% 5% 2.5% 5%;
     padding: 2.5%;
+}
+.news-thumbnail {
+    border: 1px solid black;
+    border-radius: 3px;
+    float: left;
+    height: 100px;
+    margin-right: 15px;
+}
+.podcast-info, .news-content {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.podcast-thumbnail {
+    border: 1px solid black;
+    border-radius: 3px;
+    float: left;
+    height: 100px;
+    margin-right: 15px;
+}
+.reddit-article, .news-articles, .podcast-results {
+    align-items: center;
+    border: 1px solid black;
+    display: flex;
+    margin: 15px;
+    padding: 5px;
+}
+.reddit-article h3, .podcast-title h3 {
+    padding-right: 10%;
+    justify-content: center;
+    width: 100%;
+}
+.reddit-article button {
+    justify-content: flex-end;
+}
+.reddit-logo img {
+    border: 1px solid black;
+    border-radius: 3px;
+    float: left;
+    height: 100px;
+    margin-right: 15px;
+    width: 100px;
 }
 @media only screen and (min-width: 650px) {
     .formDiv {

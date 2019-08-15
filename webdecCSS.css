@@ -1,5 +1,7 @@
 html {
     box-sizing: border-box;
+    background-color: #E8E9F3;
+    color: #2A2A2A;
   }
   *, *:before, *:after {
     box-sizing: inherit;
@@ -11,27 +13,49 @@ form {
     text-align: left;
 }  
 h1 {
+    font-family: 'Exo', sans-serif;
+    font-size: 3em;
     text-align: center;
 } 
-h3 {
+h3 { 
+    font-family: 'Exo', sans-serif;
     margin: 5px;
 } 
 header {
-    background-color: #D6E0E4;
-    border: 1px solid black;
+    background-image: url("https://i.postimg.cc/85DDKj5g/2032.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 10px;
+    box-shadow: 0 4px 8px 0 #2A2A2A, 0 4px 8px 0 #2A2A2A;
     margin: 2.5% 5% 2.5% 5%;
-    padding: 5%;
-}  
+    padding: 1% 5% 5% 5%;
+} 
+input {
+    background-color: #F2F3FF;
+    border: none;
+    border-bottom: 2px solid #0471A6;
+    height: 35px;
+    width: 180px;
+} 
+input:focus, input:active {
+    outline: 0;
+    border-color: rgb(21, 137, 238);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 3px #0471A6;
+}
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    line-height: 125%;
+}
 section {
-    background-color: #CBD3D6;
-    border: 1px solid black;
     border-radius: 10px;
+    box-shadow: 0 4px 8px 0 #2A2A2A, 0 4px 8px 0 #2A2A2A;
     margin: 2.5%;
     padding: 5%;
 }
 .formDiv {
-    border: 1px solid black;
+    background-color: #F2F3FF;
     display: block;
     margin-left: 5%;
     margin-right: 5%;
@@ -39,11 +63,10 @@ section {
     text-align: center;
 }
 .introText {
-    background-color: #CBD3D6;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin: 2.5% 5% 2.5% 5%;
+    background-color: #F2F3FF;
+    margin: 2.5% 5% 0% 5%;
     padding: 2.5%;
+    text-align: center;
 }
 .news-thumbnail {
     border: 1px solid black;
@@ -67,6 +90,7 @@ section {
 }
 .reddit-article, .news-articles, .podcast-results {
     align-items: center;
+    background-color: #E8E9F3;
     border: 1px solid black;
     display: flex;
     margin: 15px;
@@ -88,9 +112,43 @@ section {
     margin-right: 15px;
     width: 100px;
 }
-@media only screen and (min-width: 650px) {
+#submit-button {
+    background-image: linear-gradient(#E8E9F3, #B3B8C6);
+    border: 2px solid #0471A6;
+    border-radius: 3px;
+    color: #002626;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 100px;
+}
+#submit-button:hover {
+    background-image: linear-gradient(#0471A6, #004242);
+    border: 2px solid #002626;
+    color: #F2F3FF;
+    cursor: pointer;
+}
+@media only screen and (min-width: 768px) {
     .formDiv {
-        margin-left: 20%;
-        margin-right: 20%;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    .introText {
+        margin-left: 15%;
+        margin-right: 15%; 
+    }
+}
+@media only screen and (min-width: 1025px) {
+    header {
+        max-width: 956px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5%;
+    }
+    section {
+        max-width: 956px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }

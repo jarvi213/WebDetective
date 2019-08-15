@@ -6,6 +6,10 @@ html {
   *, *:before, *:after {
     box-sizing: inherit;
   }
+a {
+    text-decoration: none;
+    color: #2A2A2A;
+} 
 form {
     display: inline-block;
     margin-left: auto;

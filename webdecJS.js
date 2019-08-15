@@ -60,13 +60,15 @@ function displayListenResults(responseData) {
 //render Listen results to the DOM
 function createListenHTML(title, description, thumbnailURL) {
     return `
-        <div class="podcast-results">
-            <img class="podcast-thumbnail" src="${thumbnailURL}">
-            <div class="podcast-info">
-            <h3 class="podcast-title">${title}</h3><br>
-            <p class="podcast-description">${description}</p>
+        <a href="https://www.stitcher.com/search" target="_blank">
+            <div class="podcast-results">
+                <img class="podcast-thumbnail" src="${thumbnailURL}">
+                <div class="podcast-info">
+                <h3 class="podcast-title">${title}</h3><br>
+                <p class="podcast-description">${description}</p>
+                </div>
             </div>
-        </div>
+        </a>
     `
 }
 //make news URL
@@ -111,23 +113,26 @@ function displayNewsResults(responseData) {
         const title = (item.title)
         const description = (item.description)
         const thumbnail = (item.urlToImage)
+        const newsResultURL = (item.url)
 
-        return createNewsHTML(title, description, thumbnail)
+        return createNewsHTML(title, description, thumbnail, newsResultURL)
     }).join("")
 
     $('.news-results').html(newsItemHTML)
 }
 
 //render News results to the DOM
-function createNewsHTML(title, description, thumbnailURL) {
+function createNewsHTML(title, description, thumbnailURL, newsResultURL) {
     return `
-        <div class="news-articles">
-            <img class="news-thumbnail" src="${thumbnailURL}">
-            <div class="news-content">
-            <h3 class="news-title">${title}</h3>
-            <p class="news-description">${description}</p>
+        <a href="${newsResultURL}" target="_blank">
+            <div class="news-articles">
+                <img class="news-thumbnail" src="${thumbnailURL}">
+                <div class="news-content">
+                <h3 class="news-title">${title}</h3>
+                <p class="news-description">${description}</p>
+                </div>
             </div>
-        </div>
+        </a>
     `
 }
 
@@ -183,13 +188,14 @@ function displayRedditResults(responseData) {
 //render Reddit results to the DOM
 function createRedditHTML(title, link) { //TODO consider making this whole div the anchor
     return `
-        <div class="reddit-article">
-            <div class="reddit-logo">
-            <img src="https://i.postimg.cc/tCGYGhRG/reddit-icon-25878.jpg" alt="Reddit logo">
+        <a href="https://www.reddit.com${link}" target="_blank">
+            <div class="reddit-article">
+                <div class="reddit-logo">
+                <img src="https://i.postimg.cc/tCGYGhRG/reddit-icon-25878.jpg" alt="Reddit logo">
+                </div>
+                <h3 class="reddit-title">${title}</h3>
             </div>
-            <h3 class="reddit-title">${title}</h3>
-            <a  href="https://www.reddit.com${link}" target="_blank"><button class="reddit-link">Visit</button></a>
-        </div>
+        </a>
     `
 }
 

@@ -64,6 +64,10 @@ section {
     margin: 2.5%;
     padding: 5%;
 }
+.attribution-links {    
+    font-size: 12px;
+    text-align: center;
+}
 .formDiv {
     background-color: #F2F3FF;
     border-bottom-left-radius: 10px;

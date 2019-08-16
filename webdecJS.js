@@ -18,7 +18,7 @@ function createListenURL(params) {
 function makeListenAPIRequest(caseName, resultsCount) {
     const listenQuery = {
         q: caseName,
-        offset: resultsCount //TODO this might need to be changed since theirs returns 10 by default
+        offset: resultsCount 
     };
 
     const listenURL = createListenURL(listenQuery); 
@@ -49,18 +49,19 @@ function displayListenResults(responseData) {
     const items = responseData.results
     const listenItemHTML = items.map(function(item){
         const title = (item.podcast_title_highlighted) 
-        const description = (item.description_highlighted)
+        const description = (item.description_original)
         const thumbnail = (item.image)
+        const podcastURLclick = (item.listennotes_url)
 
-        return createListenHTML(title, description, thumbnail)
+        return createListenHTML(title, description, thumbnail, podcastURLclick)
     }).join("")
     $('.listen-results').html(listenItemHTML)
 }
 
 //render Listen results to the DOM
-function createListenHTML(title, description, thumbnailURL) {
+function createListenHTML(title, description, thumbnailURL, podcastURLclick) {
     return `
-        <a href="https://www.stitcher.com/search" target="_blank">
+        <a href="${podcastURLclick}" target="_blank">
             <div class="podcast-results">
                 <img class="podcast-thumbnail" src="${thumbnailURL}">
                 <div class="podcast-info">

@@ -55,7 +55,8 @@ function displayListenResults(responseData) {
 
         return createListenHTML(title, description, thumbnail, podcastURLclick)
     }).join("")
-    $('.listen-results').html(listenItemHTML)
+    $('.listen-results').html(listenItemHTML);
+    $('.results-found').show();
 }
 
 //render Listen results to the DOM
@@ -120,6 +121,7 @@ function displayNewsResults(responseData) {
     }).join("")
 
     $('.news-results').html(newsItemHTML)
+    $('.results-found').show();
 }
 
 //render News results to the DOM
@@ -175,7 +177,6 @@ function makeRedditAPIRequest(caseName, resultsCount, top) {
 //pull necessary info from Reddit results
 function displayRedditResults(responseData) {
     const items = responseData.data.children
-    console.log(items)
     const redditItemHTML = items.map(function(item){
         const title = (item.data.title)
         const link = (item.data.permalink)
@@ -184,10 +185,11 @@ function displayRedditResults(responseData) {
     }).join("")
 
     $('.reddit-results').html(redditItemHTML)
+    $('.results-found').show();
 }
 
 //render Reddit results to the DOM
-function createRedditHTML(title, link) { //TODO consider making this whole div the anchor
+function createRedditHTML(title, link) { 
     return `
         <a href="https://www.reddit.com${link}" target="_blank">
             <div class="reddit-article">
@@ -199,44 +201,44 @@ function createRedditHTML(title, link) { //TODO consider making this whole div t
         </a>
     `
 }
+//default view
+function initializeView() {
+    $('.results-found').hide();
+    $('.no-results-found').hide();
+}
 
 //manages user views
-function manageView(resultsFound) {
-    manageResultsFound(resultsFound);
-    if (resultsFound === 0) {
+function manageView(listenResults, newsResults, redditResults) {
+    if (listenResults === 0 && newsResults === 0 && redditResults === 0) {
         $('.no-results-found').show();
         $('.results-found').hide();
-    } else if (resultsFound > 0) {
+    } else if (listenResults > 0 || newsResults > 0 || redditResults > 0) {
+        console.log('displaying results');
+        displayListenResults(listenResults);
+        displayNewsResults(newsResults);
+        displayRedditResults(redditResults);
         $('.results-found').show();
-        $('.no-results-found').hide();
-    } else {
-        $('.results-found').hide();
         $('.no-results-found').hide();
     };
 };
-
-//compares search results to max allowed to determine what to display
-function manageResultsFound() {
-    const resultsFound= $('#searchResultsCounts').val();
-    return resultsFound;
-}
 
 //listens for user input to send with API request
 function submitUserInput() {
     $('#submit-button').on('click', function(event) {
         event.preventDefault();
+        initializeView();
         const caseName = $('#victimNameId').val(); 
         const resultsCount = $('#searchResultsCounts').val(); 
         makeListenAPIRequest(caseName, resultsCount);
         makeNewsAPIRequest(caseName, resultsCount);
         makeRedditAPIRequest(caseName, resultsCount);
-        manageView(resultsCount);
+        //manageView(listenResults, newsResults, redditResults);
     });
 };
 
 //take all the functions and run it!
 function runPage() {
-    manageView();
+    initializeView();
     submitUserInput();
 };
 

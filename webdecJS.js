@@ -213,7 +213,6 @@ function manageView(listenResults, newsResults, redditResults) {
         $('.no-results-found').show();
         $('.results-found').hide();
     } else if (listenResults > 0 || newsResults > 0 || redditResults > 0) {
-        console.log('displaying results');
         displayListenResults(listenResults);
         displayNewsResults(newsResults);
         displayRedditResults(redditResults);

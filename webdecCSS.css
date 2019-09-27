@@ -156,9 +156,19 @@ section {
     color: #F2F3FF;
     cursor: pointer;
 }
-@media only screen and (min-width: 350px) {
+@media only screen and (min-width: 320px) {
     main {
         width: 100%;
+    }
+    p {
+        font-size: 14px;
+    }
+    .podcast-info, .news-content {
+        align-items: flex-start;
+        word-break: break-word;
+    }
+    .podcast-thumbnail {
+        height: 0px;
     }
 }
 @media only screen and (min-width: 768px) {
